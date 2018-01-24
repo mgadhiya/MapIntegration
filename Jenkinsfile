@@ -48,7 +48,7 @@ def dotnet_publish(){
     dir('MapSolution/MapSolution') {
         shell(script: 'dotnet publish MapSolution.csproj -o ./obj/Docker/publish', returnStdout: true);
         shell(script: 'cp Dockerfile ./obj/Docker/publish', returnStdout: true);
-        sshell(script: 'tar zcf netcoreapp.tar.gz -C ./obj/Docker/publish .', returnStdout: true);
+        shell(script: 'tar zcf netcoreapp.tar.gz -C ./obj/Docker/publish .', returnStdout: true);
     }
 }
 
