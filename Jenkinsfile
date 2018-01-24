@@ -64,6 +64,14 @@ def docker_build(){
         dockerApiRequest('build?t=netcoreapp:' + VERSION_NUMBER + '&nocache=1&rm=1', 'POST', 'tar','', '@netcoreapp.tar.gz', true);
     }
 }
+def createContainer(){
+    shell('echo \'{ "Image": "netcoreapp:' + VERSION_NUMBER + '", "ExposedPorts": { "5000/tcp" : {} }, "HostConfig": { "PortBindings": { "5000/tcp": [{ "HostPort": "5000" }] } } }\' > imageconf');
+
+    def createResponse = dockerApiRequest('containers/create', 'POST', 'json', 'json', '@imageconf');
+    def containerId = createResponse.Id;
+
+    return containerId;
+}
 
 def docker_run(){
     dir('MapSolution/MapSolution') {
@@ -84,6 +92,7 @@ def renameContainer(containerId){
 //Generates a version number
 def getVersionNumber() {
     def out = shell(script: 'git rev-list --count HEAD', returnStdout: true);
+	echo out ;
     def array = out.split('\\r?\\n');
     def count = array[array.length - 1];
 
