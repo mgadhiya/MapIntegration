@@ -29,6 +29,6 @@ def cloneRepo() {
 
 def dotnet_build(){
 	dir('MapSolution/MapSolution') {
-		sh(script: 'dotnet build MapSolution.csproj', returnStdout: true);
+		shell(script: 'dotnet build MapSolution.csproj', returnStdout: true);
 	}
 }
