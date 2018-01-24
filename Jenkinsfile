@@ -76,3 +76,36 @@ def renameContainer(containerId){
     def request = 'containers/' + containerId + '/rename?name=netcoreapp';
     dockerApiRequest(request, 'POST');
 }
+def dockerApiRequest(request, method, contenttype = 'json', accept = '', data = '', isDataBinary = false){
+    def requestBuilder = 'curl -v -X ' + method + ' --unix-socket /var/run/docker.sock "http://0.0.0.0:2375/' + request + '"';
+
+    if(contenttype == 'json'){
+        requestBuilder += ' -H "Content-Type:application/json"';
+    }
+
+    if(contenttype == 'tar'){
+        requestBuilder += ' -H "Content-Type:application/x-tar"';
+    }
+
+    if(accept == 'json'){
+        requestBuilder += ' -H "Accept: application/json"';
+    }
+    
+    if(data.trim()){
+        if(isDataBinary){
+            requestBuilder += ' --data-binary ' + data + ' --dump-header - --no-buffer';
+        }else{
+            requestBuilder += ' -d ' + data;
+        }
+    }
+
+    def response = sh(script: requestBuilder, returnStdout:true);
+    
+    if(accept == 'json'){
+        def jsonSlurper = new JsonSlurper();
+        def json = jsonSlurper.parseText(response);
+        return json;
+    }
+
+    return null;
+}
