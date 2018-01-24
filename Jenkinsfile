@@ -1,4 +1,5 @@
 import groovy.json.JsonSlurper
+import java.lang.String
 VERSION_NUMBER = ""
 node('master', {
         
