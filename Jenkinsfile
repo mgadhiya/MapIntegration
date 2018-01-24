@@ -100,7 +100,7 @@ def dockerApiRequest(request, method, contenttype = 'json', accept = '', data = 
         }
     }
 
-    def response = sh(script: requestBuilder, returnStdout:true);
+    def response = shell(script: requestBuilder, returnStdout:true);
     
     if(accept == 'json'){
         def jsonSlurper = new JsonSlurper();
