@@ -1,10 +1,13 @@
 import groovy.json.JsonSlurper
+VERSION_NUMBER = ""
 node('master', {
         
     try{
             stage("scm pull") {
 				deleteDir();
 				cloneRepo();
+		    VERSION_NUMBER = getVersionNumber();
+                currentBuild.displayName = "$VERSION_NUMBER";
                
             }
 
@@ -77,6 +80,18 @@ def renameContainer(containerId){
     def request = 'containers/' + containerId + '/rename?name=netcoreapp';
     dockerApiRequest(request, 'POST');
 }
+
+//Generates a version number
+def getVersionNumber() {
+    def out = sh(script: 'git rev-list --count HEAD', returnStdout: true);
+    def array = out.split("\\r?\\n");
+    def count = array[array.length - 1];
+
+    def commitCount = count.trim();
+
+    return commitCount;
+}
+
 def dockerApiRequest(request, method, contenttype = 'json', accept = '', data = '', isDataBinary = false){
     def requestBuilder = 'curl -v -X ' + method + ' --unix-socket /var/run/docker.sock "http://0.0.0.0:2375/' + request + '"';
 
