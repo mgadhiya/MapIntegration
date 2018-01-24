@@ -1,5 +1,7 @@
 import groovy.json.JsonSlurper
 import java.lang.String
+import java.util.ArrayList
+
 VERSION_NUMBER = ""
 node('master', {
         
@@ -94,7 +96,7 @@ def renameContainer(containerId){
 def getVersionNumber() {
     def out = shell(script: 'git rev-list --count HEAD', returnStdout: true);
 println out;
-    String[] array = out.split("\\r?\\n");
+    String[] array = out.split("\\n");
     def count = array[array.length - 1];
 
     def commitCount = count.trim();
