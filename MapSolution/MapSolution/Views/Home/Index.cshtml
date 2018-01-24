@@ -1,0 +1,62 @@
+﻿@model MapSolution.Controllers.TestViewModel
+@using MapSolution.Controllers;    
+           
+@{
+    ViewBag.Title = "Home Page";
+}
+
+ 
+
+<h2>@ViewBag.Message</h2>
+<p>
+    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
+</p>
+
+<div id="map"></div>
+
+@*@{
+    var myChart = new Chart(width: 600, height: 400)
+        .AddTitle("Chart Title")
+        .AddSeries(
+            name: "Employee",
+            xValue: new[] {  "Peter", "Andrew", "Julie", "Mary", "Dave" },
+            yValues: new[] { "2", "6", "4", "5", "3" })
+        .Write();
+}*@
+
+@*@{
+     var chart = new Chart(width: 600, height: 250)
+        .AddSeries(
+            chartType: "pie",
+            xValue: new [] { 2010, 2011, 2012 },
+            yValues: new[] { 100, 125, 150 },
+            name: "Forecasts")
+        .AddSeries(
+            chartType: "pie",
+            xValue: new[] { 2010, 2011, 2012 },
+            yValues: new[] { 200, 225, 250 },
+            name: "Actuals")
+        .AddLegend()
+        .Write();
+}*@
+
+@*<img alt="alternateText" src="@Url.Action("Chart")" />*@
+
+@*@Html.Generate(Model.GraphModel)*@
+
+<script type="text/javascript">
+    $(document).ready(function () {
+    debugger;
+
+        var data = @Html.Raw(Json.Encode(Model.MapList));
+        for (var i=0; i< data.length; i++)
+        {
+            
+        }
+       
+    });
+</script>
+
+
+
+    

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MyReleaseDBModelStoreContainer" CdmEntityContainer="MyReleaseDBEntities">
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="MyReleaseDBModel.Person">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="Distance_2" ColumnName="Distance 2" />
+          <ScalarProperty Name="Center_Info_county" ColumnName="Center Info county" />
+          <ScalarProperty Name="Center_Info_state" ColumnName="Center Info state" />
+          <ScalarProperty Name="Center_Info_city" ColumnName="Center Info city" />
+          <ScalarProperty Name="Center_longitude" ColumnName="Center longitude" />
+          <ScalarProperty Name="Center_latitude" ColumnName="Center latitude" />
+          <ScalarProperty Name="Center_Infozip_code" ColumnName="Center Infozip_code" />
+          <ScalarProperty Name="CenterAddress2" ColumnName="CenterAddress2" />
+          <ScalarProperty Name="CenterAddress1" ColumnName="CenterAddress1" />
+          <ScalarProperty Name="Center_Info_CenterName" ColumnName="Center Info CenterName" />
+          <ScalarProperty Name="Center_Info_RegionName" ColumnName="Center Info RegionName" />
+          <ScalarProperty Name="ZoneName" ColumnName="ZoneName" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="MandalName" ColumnName="MandalName" />
+          <ScalarProperty Name="RelationType" ColumnName="RelationType" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="CenterType" ColumnName="CenterType" />
+          <ScalarProperty Name="CenterName" ColumnName="CenterName" />
+          <ScalarProperty Name="county" ColumnName="county" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="IMS_data_longitude" ColumnName="IMS data longitude" />
+          <ScalarProperty Name="IMS_data_latitude" ColumnName="IMS data latitude" />
+          <ScalarProperty Name="zip_code" ColumnName="zip_code" />
+          <ScalarProperty Name="UnitType" ColumnName="UnitType" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="PersonSearchID" ColumnName="PersonSearchID" />
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetCityFamilyCount" FunctionName="MyReleaseDBModel.Store.sp_city_family_count">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MyReleaseDBModel.CityFamilyCountResult">
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="zip_code" ColumnName="zip_code" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="FamilyCount" ColumnName="FamilyCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetLatlongData" FunctionName="MyReleaseDBModel.Store.sp_lat_long_data">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MyReleaseDBModel.LatlongDataResult">
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longtitude" ColumnName="longtitude" />
+          <ScalarProperty Name="FamilyCount" ColumnName="FamilyCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

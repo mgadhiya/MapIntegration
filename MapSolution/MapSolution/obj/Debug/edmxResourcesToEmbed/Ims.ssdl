@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyReleaseDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="MyReleaseDBModelStoreContainer">
+    <EntitySet Name="Person" EntityType="MyReleaseDBModel.Store.Person" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <!--Errors Found During Generation:
+      warning 6005: The data type 'geography' is not supported for the target .NET Framework version. The column 'LatLong' in the table 'MyReleaseDB.dbo.Person' was excluded from the model. To use the data type 'geography', target the .NET Framework 4.5 or higher.
+      -->
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="PersonID" />
+    </Key>
+    <Property Name="PersonID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" />
+    <Property Name="Language" Type="varchar" MaxLength="50" />
+    <Property Name="PersonSearchID" Type="varchar" MaxLength="50" />
+    <Property Name="Address1" Type="varchar" MaxLength="100" />
+    <Property Name="Address2" Type="varchar" MaxLength="50" />
+    <Property Name="UnitType" Type="varchar" MaxLength="50" />
+    <Property Name="zip_code" Type="varchar" MaxLength="50" />
+    <Property Name="IMS data latitude" Type="decimal" Scale="7" />
+    <Property Name="IMS data longitude" Type="decimal" Scale="7" />
+    <Property Name="city" Type="varchar" MaxLength="50" />
+    <Property Name="state" Type="varchar" MaxLength="50" />
+    <Property Name="county" Type="varchar" MaxLength="50" />
+    <Property Name="CenterName" Type="varchar" MaxLength="50" />
+    <Property Name="CenterType" Type="varchar" MaxLength="50" />
+    <Property Name="RegionName" Type="varchar" MaxLength="50" />
+    <Property Name="RelationType" Type="varchar" MaxLength="50" />
+    <Property Name="MandalName" Type="varchar" MaxLength="50" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="50" />
+    <Property Name="ZoneName" Type="varchar" MaxLength="50" />
+    <Property Name="Center Info RegionName" Type="varchar" MaxLength="50" />
+    <Property Name="Center Info CenterName" Type="varchar" MaxLength="50" />
+    <Property Name="CenterAddress1" Type="varchar" MaxLength="100" />
+    <Property Name="CenterAddress2" Type="varchar" MaxLength="50" />
+    <Property Name="Center Infozip_code" Type="varchar" MaxLength="50" />
+    <Property Name="Center latitude" Type="varchar" MaxLength="50" />
+    <Property Name="Center longitude" Type="varchar" MaxLength="50" />
+    <Property Name="Center Info city" Type="varchar" MaxLength="50" />
+    <Property Name="Center Info state" Type="varchar" MaxLength="50" />
+    <Property Name="Center Info county" Type="varchar" MaxLength="50" />
+    <Property Name="Distance 2" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Function Name="sp_city_family_count" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_lat_long_data" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+</Schema>

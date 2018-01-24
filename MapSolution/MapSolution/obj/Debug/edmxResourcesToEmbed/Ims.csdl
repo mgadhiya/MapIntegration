@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyReleaseDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="MyReleaseDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="People" EntityType="MyReleaseDBModel.Person" />
+    <FunctionImport Name="GetCityFamilyCount" ReturnType="Collection(MyReleaseDBModel.CityFamilyCountResult)" />
+    <FunctionImport Name="GetLatlongData" ReturnType="Collection(MyReleaseDBModel.LatlongDataResult)" />
+  </EntityContainer>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="PersonID" />
+    </Key>
+    <Property Type="Guid" Name="PersonID" Nullable="false" />
+    <Property Type="String" Name="FirstName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MiddleName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Gender" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Language" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PersonSearchID" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Address1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Address2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UnitType" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="zip_code" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="IMS_data_latitude" Precision="18" Scale="7" />
+    <Property Type="Decimal" Name="IMS_data_longitude" Precision="18" Scale="7" />
+    <Property Type="String" Name="city" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="state" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="county" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CenterName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CenterType" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="RegionName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="RelationType" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MandalName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CategoryName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ZoneName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Center_Info_RegionName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Center_Info_CenterName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CenterAddress1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CenterAddress2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Center_Infozip_code" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Center_latitude" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Center_longitude" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Center_Info_city" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Center_Info_state" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Center_Info_county" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Distance_2" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="CityFamilyCountResult">
+    <Property Type="String" Name="City" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="zip_code" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="Distance" Nullable="true" />
+    <Property Type="Int32" Name="FamilyCount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="LatlongDataResult">
+    <Property Type="Decimal" Name="latitude" Nullable="true" Precision="18" Scale="7" />
+    <Property Type="Decimal" Name="longtitude" Nullable="true" Precision="18" Scale="7" />
+    <Property Type="Int32" Name="FamilyCount" Nullable="true" />
+  </ComplexType>
+</Schema>
