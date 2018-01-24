@@ -1,4 +1,34 @@
 node('master', {
-    echo 'env.PATH=' + env.PATH
-    shell('env')
+        
+    try{
+            stage("scm pull") {
+				deleteDir();
+				cloneRepo();
+               
+            }
+
+            stage ("dotnet build") {
+				dotnet_build();
+            }
+
+
+        }
+        catch (InterruptedException x) {
+            currentBuild.result = 'ABORTED';
+            throw x;
+        }
+        catch (e) {
+            currentBuild.result = 'FAILURE';
+            throw e;
+        }
    })
+
+def cloneRepo() {
+    checkout scm;
+}
+
+def dotnet_build(){
+	dir('MapSolution/MapSolution') {
+		sh(script: 'dotnet build MapSolution.csproj', returnStdout: true);
+	}
+}
