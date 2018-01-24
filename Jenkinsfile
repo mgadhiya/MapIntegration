@@ -95,8 +95,10 @@ def renameContainer(containerId){
 //Generates a version number
 def getVersionNumber() {
     def out = shell(script: 'git rev-list --count HEAD', returnStdout: true);
-println out;
-    String[] array = out.split("\\n");
+
+    String[] array = out.split('\n');
+	
+	println array;
     def count = array[array.length - 1];
 
     def commitCount = count.trim();
