@@ -18,3 +18,16 @@ C:\Users\mgadhiya\Downloads\MapIntegration\MapSolution\MapSolution\bin\System.We
 C:\Users\mgadhiya\Downloads\MapIntegration\MapSolution\MapSolution\obj\Debug\MapSolution.csprojResolveAssemblyReference.cache
 C:\Users\mgadhiya\Downloads\MapIntegration\MapSolution\MapSolution\obj\Debug\MapSolution.dll
 C:\Users\mgadhiya\Downloads\MapIntegration\MapSolution\MapSolution\obj\Debug\MapSolution.pdb
+C:\jenkin\MapSolution\MapSolution\bin\MapSolution.dll.config
+C:\jenkin\MapSolution\MapSolution\bin\MapSolution.dll
+C:\jenkin\MapSolution\MapSolution\bin\MapSolution.pdb
+C:\jenkin\MapSolution\MapSolution\bin\System.Web.Helpers.dll
+C:\jenkin\MapSolution\MapSolution\bin\System.Web.WebPages.dll
+C:\jenkin\MapSolution\MapSolution\bin\System.Web.Razor.dll
+C:\jenkin\MapSolution\MapSolution\bin\System.Web.WebPages.Razor.dll
+C:\jenkin\MapSolution\MapSolution\bin\Microsoft.Web.Infrastructure.dll
+C:\jenkin\MapSolution\MapSolution\bin\System.Web.WebPages.Deployment.dll
+C:\jenkin\MapSolution\MapSolution\bin\System.Web.Mvc.xml
+C:\jenkin\MapSolution\MapSolution\obj\Debug\MapSolution.csprojResolveAssemblyReference.cache
+C:\jenkin\MapSolution\MapSolution\obj\Debug\MapSolution.dll
+C:\jenkin\MapSolution\MapSolution\obj\Debug\MapSolution.pdb
