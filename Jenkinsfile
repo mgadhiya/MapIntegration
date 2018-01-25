@@ -109,7 +109,7 @@ def getVersionNumber() {
 }
 
 def dockerApiRequest(request, method, contenttype = 'json', accept = '', data = '', isDataBinary = false){
-    def requestBuilder = 'curl -v -X ' + method + ' --unix-socket /var/run/docker.sock "http://0.0.0.0:2375/' + request + '"';
+    def requestBuilder = 'curl -v -X ' + method + ' --unix-socket /var/run/docker.sock:/tmp/docker.sock "tcp://localhost:2375/' + request + '"';
 
     if(contenttype == 'json'){
         requestBuilder += ' -H "Content-Type:application/json"';
