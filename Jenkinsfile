@@ -79,6 +79,7 @@ def createContainer(){
 def docker_run(){
     dir('MapSolution/MapSolution') {
         def containerId = createContainer();
+	    println 'containerId : '+ containerId;
         renameContainer(containerId);
         startContainer();
     }
@@ -89,6 +90,7 @@ def startContainer(){
 
 def renameContainer(containerId){
     def request = 'containers/' + containerId + '/rename?name=netcoreapp';
+	   println 'rename containerId : ';
     dockerApiRequest(request, 'POST');
 }
 
