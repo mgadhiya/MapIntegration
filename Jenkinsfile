@@ -135,7 +135,7 @@ def dockerApiRequest(request, method, contenttype = 'json', accept = '', data = 
     
     if(accept == 'json'){
         def jsonSlurper = new JsonSlurper();
-        def json = jsonSlurper.parseText(response);
+        def json = jsonSlurper.parseText(response.list.first());
         return json;
     }
 
