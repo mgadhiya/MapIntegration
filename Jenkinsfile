@@ -69,7 +69,7 @@ def docker_build(){
 }
 def createContainer(){
     shell('echo \'{ "Image": "netcoreapp:' + VERSION_NUMBER + '", "ExposedPorts": { "5000/tcp" : {} }, "HostConfig": { "PortBindings": { "5000/tcp": [{ "HostPort": "5000" }] } } }\' > imageconf');
-
+println 'containerId : '+ containerId;
     def createResponse = dockerApiRequest('containers/create', 'POST', 'json', 'json', '@imageconf');
     def containerId = createResponse.Id;
 
@@ -132,7 +132,9 @@ def dockerApiRequest(request, method, contenttype = 'json', accept = '', data = 
     }
 
     def response = shell(script: requestBuilder, returnStdout:true);
-    
+    println 'response : '+ response;
+	
+	println 'request : '+ requestBuilder;
     if(accept == 'json'){
         def jsonSlurper = new JsonSlurper();
         def json = jsonSlurper.parseText('{"result":[{"id":"167687","dapadmin":"false","status":"in progress","lastupdated":"2017-04-21 14:34:30.0","started":"2017-04-21 14:34:28.0","user":"sys","log":"Running a Stop action\n\nRunning command \n"}]}');
