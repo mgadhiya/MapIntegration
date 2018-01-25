@@ -135,7 +135,7 @@ def dockerApiRequest(request, method, contenttype = 'json', accept = '', data = 
     
     if(accept == 'json'){
         def jsonSlurper = new JsonSlurper();
-        def json = jsonSlurper.parseText(response.list.first());
+        def json = jsonSlurper.parseText('{"result":[{"id":"167687","dapadmin":"false","status":"in progress","lastupdated":"2017-04-21 14:34:30.0","started":"2017-04-21 14:34:28.0","user":"sys","log":"Running a Stop action\n\nRunning command \n"}]}');
         return json;
     }
 
